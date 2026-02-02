@@ -101,6 +101,13 @@ vim.keymap.set('n', '<M-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-l>', '<C-w>l', { noremap = true, silent = true })
 
+-- interview prep
+
+-- Quickly insert STAR template
+vim.keymap.set('n', '<leader>st', ':Star<CR>', { desc = 'Insert STAR template' })
+-- Quickly insert Test Automation STAR template
+vim.keymap.set('n', '<leader>sa', ':StarTest<CR>', { desc = 'Insert Automation STAR template' })
+
 local function get_window_position()
   local function find(winid, layout)
     local t = layout[1]

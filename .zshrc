@@ -102,5 +102,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-source ~/.aliases
+source ~/.aliases.sh
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/mysql/bin:$PATH"

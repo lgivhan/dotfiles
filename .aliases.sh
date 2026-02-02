@@ -4,3 +4,4 @@ alias gp="git push"
 alias gl="git log --graph --decorate --date=iso \
   --pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(auto)%d%Creset %s'"
 alias nv="nvim"
+alias mysql="mysql -u root -p"
