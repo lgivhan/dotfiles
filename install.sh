@@ -72,7 +72,7 @@ echo "✅ .zshrc symlink created"
 
 echo ""
 
-# Backup and symlink .aliases
+# Backup and symlink .aliases.sh
 if [ -f "$HOME/.aliases" ] && [ ! -L "$HOME/.aliases" ]; then
   BACKUP_FILE="$HOME/.aliases.backup.$(date +%Y%m%d_%H%M%S)"
   echo "📁 Backing up existing .aliases to $BACKUP_FILE"
@@ -83,7 +83,7 @@ if [ -L "$HOME/.aliases" ]; then
   rm "$HOME/.aliases"
 fi
 echo "🔗 Creating .aliases symlink..."
-ln -sf "$HOME/dotfiles/.aliases" "$HOME/.aliases"
+ln -sf "$HOME/dotfiles/.aliases.sh" "$HOME/.aliases.sh"
 echo "✅ .aliases symlink created"
 
 echo ""

@@ -1,6 +1,6 @@
 return {
   'mfussenegger/nvim-jdtls',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
   ft = { 'java' }, -- Automatically load for Java files
   opts = function()
     -- Use $MASON environment variable to find lombok.jar
@@ -15,10 +15,10 @@ return {
     -- Fallback configuration if lombok.jar isn't found
     if not lombok_jar then
       vim.notify('Using jdtls without lombok support', vim.log.levels.WARN)
-      return {
-        root_dir = require('lspconfig').util.root_pattern('.git', 'mvnw', 'gradlew'),
-        cmd = { vim.fn.exepath 'jdtls' },
-      }
+      lombok_jar = vim.fn.expand('~/.local/share/nvim/mason/share/jdtls/lombok.jar')
+      if vim.fn.filereadable(lombok_jar) == 0 then
+        lombok_jar = nil
+      end    
     end
 
     return {
@@ -39,7 +39,7 @@ return {
       cmd = {
         vim.fn.exepath 'jdtls',
         string.format('--jvm-arg=-javaagent:%s', lombok_jar),
-      },
+      } or { vim.fn.exepath 'jdtls' },
       full_cmd = function(opts)
         local fname = vim.api.nvim_buf_get_name(0)
         local root_dir = opts.root_dir(fname)
@@ -103,7 +103,7 @@ return {
         root_dir = opts.root_dir(fname),
         init_options = { bundles = bundles },
         settings = opts.settings,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        capabilities = require('blink.cmp').get_lsp_capabilities(),
         on_attach = function(client, _)
           client.server_capabilities.semanticTokensProvider = nil -- Disable LSP semantic highlighting
         end,

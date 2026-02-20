@@ -35,3 +35,5 @@ vim.api.nvim_create_autocmd('User', {
    require 'config.user_commands'
  end,
 })
+
+vim.opt.termguicolors = true

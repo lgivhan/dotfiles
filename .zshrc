@@ -105,3 +105,8 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 source ~/.aliases.sh
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
+
+export TERM="xterm-256color"
+export COLORTERM="truecolor"
+
+export PATH="$HOME/.cargo/bin:$PATH"

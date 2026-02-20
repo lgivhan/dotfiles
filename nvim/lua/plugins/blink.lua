@@ -4,7 +4,7 @@ return {
 
   dependencies = {
     'rafamadriz/friendly-snippets',
-    { 'saghen/blink.compat', version = '1.*' },
+    'saghen/blink.compat',
     'zbirenbaum/copilot-cmp',
     'kristijanhusak/vim-dadbod-completion',
     'fang2hou/blink-copilot',
@@ -108,7 +108,9 @@ return {
         },
       },
 
-      fuzzy = { implementation = 'prefer_rust_with_warning' },
+      fuzzy = { 
+        implementation = 'prefer_rust_with_warning',
+      },
     }
   end,
 
