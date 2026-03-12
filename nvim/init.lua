@@ -37,3 +37,9 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
+
+-- indent spacing
+vim.opt.shiftwidth = 2 -- Size of indent
+vim.opt.tabstop = 2 -- Number of spaces a <tab> counts for
+vim.opt.expandtab = true -- Use spaces instead of tabs
