@@ -21,9 +21,9 @@ fi
 echo ""
 
 # Install Neovim and dependencies
-echo "📦 Installing Neovim and dependencies"
+echo "📦 Installing Neovim, tree and dependencies"
 echo "   This may take a few minutes..."
-brew install neovim ripgrep fd node go rust python
+brew install neovim ripgrep fd node go rust python tree
 
 # Install Oh My Zsh if not already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
