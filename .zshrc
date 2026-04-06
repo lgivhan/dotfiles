@@ -110,3 +110,31 @@ export TERM="xterm-256color"
 export COLORTERM="truecolor"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Functions
+
+## create folder and go into it
+take() {
+  mkdir -p "$1" && cd "$1"
+}
+
+## Execute java programs
+rj() {
+    # Remove the .java extension if the user included it
+    FILE="${1%.java}"
+    
+    # Compile the .java file and run the resulting class
+    javac "$FILE.java" && java "$FILE"
+}
+
+echo ""
+echo " \"God has made provision for the men whom he has called to do his work,"
+echo "  that they may come off conquorers in every contest."
+echo "  Those who follow his directions will never meet with defeat.\""
+echo "  - Testimonies to the Church Vol 2, p. 515"
+echo ""
+
